@@ -1,6 +1,6 @@
 # Heart Disease Prediction
 
-A Machine Learning project that predicts the likelihood of heart disease using patient health information. The model is trained on medical data containing various cardiovascular risk factors and can classify whether a patient is likely to have heart disease.
+A Deep Learning project that predicts the likelihood of heart disease using patient health information. The model is trained on medical data containing various cardiovascular risk factors and can classify whether a patient is likely to have heart disease.
 
 ## Features
 
