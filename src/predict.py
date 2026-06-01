@@ -1,7 +1,7 @@
 from tensorflow.keras.models import load_model
 import numpy as np
 
-model = load_model("./models/heart_disease_model_v3.keras")
+model = load_model("../models/heart_disease_model_v3.keras")
 
 means = [54.97, 132.35, 247.45, 147.62, 1.10, 1.60]
 stds  = [8.885122458722824, 18.186912785860557, 49.54693487176298,
