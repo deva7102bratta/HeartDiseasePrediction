@@ -1,15 +1,15 @@
 from tensorflow.keras.models import load_model
 import numpy as np
 
-model = load_model("../models/heart_disease_model_v3.keras")
+model = load_model("../models/heart_disease_model_v4.keras")
 
-means = [53.87922210849539, 131.8229273285568, 211.94575230296826, 141.0348004094166, 0.9213920163766632, 1.7840327533265097
+means = [53.87922210849539, 131.8229273285568, 211.94575230296826, 141.0348004094166, 0.9213920163766632, 1.7840327533265097]
 stds  = [9.327804604435439, 18.689447755500296
 , 99.77518851245934, 24.986283466357058, 1.098304816588329, 0.5612403116764801]
 
 feature_names = [
     "age","trestbps","chol","thalach","oldpeak","slope",
-    "sex_0","sex_1",
+    "female","male",
     "cp_0","cp_1","cp_2","cp_3","cp_4",
     "fbs_0","fbs_1",
     "restecg_0","restecg_1","restecg_2",

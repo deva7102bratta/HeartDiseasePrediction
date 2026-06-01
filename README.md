@@ -90,7 +90,15 @@ Run:
 ```bash
 python predict.py
 ```
-
+running on colab nb:
+```bash
+!git clone https://github.com/deva7102bratta/HeartDiseasePrediction.git
+%cd HeartDiseasePrediction
+!pip install -r requirements.txt
+%cd src
+!python predict.py
+```
+- Note: just copy and paste this on your colab nb
 Example input:
 
 ```python
