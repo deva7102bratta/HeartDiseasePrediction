@@ -45,4 +45,4 @@ input_data = np.array(input_data).reshape(1, -1)
 print("Input shape:", input_data.shape)
 
 prediction = model.predict(input_data)
-print("Prediction:", prediction)
+print("Prediction: ", prediction*100, "%", sep="")
