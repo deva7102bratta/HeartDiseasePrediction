@@ -46,7 +46,7 @@ for i in range(6):
             break
         except:
             print("Invalid input!")
-for i in range(6::):
+for i in range(6:):
     while True:
         try:
             value = float(input(f"{feature_names[i]}: "))
