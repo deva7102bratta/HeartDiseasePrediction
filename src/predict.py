@@ -1,53 +1,61 @@
 from tensorflow.keras.models import load_model
 import numpy as np
-from data import means.csv stds.csv
+import pandas as pd
 
-#Load trained model
-model_version = input("Model Version: ")
 model = load_model("./models/heart_disease_model_v3.keras")
-required_features_numericals = [
-    "Age",
-    "Resting Blood Pressure (mm Hg)",
-    "Serum Cholesterol (mg/dL)",
-    "Maximum Heart Rate Achieved",
-    "ST Depression (Oldpeak)",
-    "Slope of Peak Exercise ST Segment (1=Upsloping, 2=Flat, 3=Downsloping)",
-    "Number of Major Vessels (0–3)",
+
+# means = pd.read_csv("../data/means.csv")
+# stds = pd.read_csv("../data/stds.csv")
+
+# age_mean = 54.97
+# trestbps_mean = 132.35
+# chol_mean = 247.45
+# thalach_mean = 147.62
+# oldpeak_mean = 1.10
+# slope_mean = 1.60
+
+# age,8.885122458722824
+# trestbps,18.186912785860557
+# chol,49.54693487176298
+# thalach,23.463325904851786
+# oldpeak,1.183855640287323
+# slope,0.6309776383383059
+
+means = [54.97, 132.35, 247.45, 147.62, 1.10, 1.60]
+stds = [8.885122458722824, 18.186912785860557, 49.54693487176298, 23.463325904851786, 1.183855640287323, 0.6309776383383059
 ]
-required_features_categorical = [
-    "Sex (0=Female, 1=Male)",
-    "Chest Pain Type (0=No Chest Pain, 1=Typical Angina, 2=Atypical Angina, 3=Non-anginal Pain, 4=Asymptomatic)",
-    "Fasting Blood Sugar (0=≤120 mg/dL, 1=>120 mg/dL)",
-    "Resting ECG (0=Normal, 1=ST-T Abnormality, 2=LV Hypertrophy)",
-    "Exercise Induced Angina (0=No, 1=Yes)",
-    "Thalassemia (1=Normal, 2=Fixed Defect, 3=Reversible Defect)"
+
+feature_names = [
+    "age","trestbps","chol","thalach","oldpeak","slope",
+    "sex_0","sex_1",
+    "cp_0","cp_1","cp_2","cp_3","cp_4",
+    "fbs_0","fbs_1",
+    "restecg_0","restecg_1","restecg_2",
+    "exang_0","exang_1",
+    "ca_0","ca_1","ca_2","ca_3",
+    "thal_fixed","thal_normal","thal_reversible"
 ]
-  
+
 input_data = []
 
-for feature in required_features_numericals:
+for i in range(6):
     while True:
-      try:
-        value = float(input(f"{feature}: "))
-        input_data.append(value)
-        break
-      except ValueError:
-        print("Please Enter Valid Number!!")
-        
-for feature in required_features_categorical:
+        try:
+            value = float(input(f"{feature_names[i]}: "))
+            input_data.append((value-means[i])/stds[i])
+            break
+        except:
+            print("Invalid input!")
+for i in range(6::):
     while True:
-      try:
-        value = float(input(f"{feature}: "))
-        input_data.append(value)
-        break
-      except ValueError:
-        print("Please Enter Valid Number!!")
-               
-for data, in input_data:
-  
-# Convert to NumPy array with shape (1, 13)
-input_data = np.array([input_data])
-
+        try:
+            value = float(input(f"{feature_names[i]}: "))
+            input_data.append(value)
+            break
+        except:
+            print("Invalid input!")  
+            
+input_data = np.array(input_data).reshape(1, -1)
 print(input_data)
 print(input_data.shape)
 # Predict
