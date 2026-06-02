@@ -5,7 +5,7 @@ A Deep Learning project that predicts the likelihood of heart disease using pati
 ## Features
 
 - Data preprocessing and analysis
-- Machine Learning-based prediction
+- Deep Learning-based prediction
 - Model training and evaluation
 - Predict heart disease risk from patient data
 - Easy-to-use Python implementation
@@ -80,7 +80,7 @@ python train.py
 The trained model will be saved as:
 
 ```text
-model.pkl
+model.Keras
 ```
 
 ## Making Predictions
@@ -90,7 +90,7 @@ Run:
 ```bash
 python predict.py
 ```
-running on colab nb:
+Run on colab nb:
 ```bash
 !git clone https://github.com/deva7102bratta/HeartDiseasePrediction.git
 %cd HeartDiseasePrediction
@@ -98,21 +98,11 @@ running on colab nb:
 %cd src
 !python predict.py
 ```
-- Note: just copy and paste this on your colab nb
-Example input:
+- Note: Just copy/paste and run this directly on your colab nb
 
-```python
-[63, 1, 3, 145, 233, 1, 0, 150, 0, 2.3, 0, 0, 1]
-```
-
-Example output:
-
-```text
-Heart Disease Detected
-```
 ## Model Performance
 
-Accuracy: 85.2%
+Accuracy: 86.2%
 
 ## Technologies Used
 
